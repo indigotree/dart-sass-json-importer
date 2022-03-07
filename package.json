@@ -1,6 +1,6 @@
 {
   "name": "dart-sass-json-importer",
-  "version": "0.0.0-development",
+  "version": "0.1.0",
   "description": "Allows importing json in sass files parsed by dart-sass.",
   "main": "dist/index.js",
   "license": "MIT",
