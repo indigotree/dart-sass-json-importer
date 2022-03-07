@@ -5,14 +5,14 @@ import jsonImporter, {
   toKebabCase,
   parseValue,
 } from '../src'
-import sass                                   from 'node-sass';
+import sass                                   from 'sass';
 import {expect}                               from 'chai';
 import {resolve}                              from 'path';
 
 const requiredImporter = require('../src/index');
-const EXPECTATION = 'body {\n  color: #c33; }\n';
+const EXPECTATION = 'body {\n  color: #c33;\n}';
 
-describe('node-sass-json-importer', function() {
+describe('dart-sass-json-importer', function() {
   // TODO: Added to verify named exports + CommonJS default export hack (see index.js).
   it('provides the default export when using node require to import', function() {
     let result = sass.renderSync({
@@ -130,7 +130,7 @@ describe('Import type test (JSON)', function() {
       importer: jsonImporter(),
     });
 
-    expect(result.css.toString()).to.eql('body {\n  color: ""; }\n');
+    expect(result.css.toString()).to.eql('body {\n  color: "";\n}');
   });
 
   it('ignores variables starting with @, : or $', function() {
@@ -139,7 +139,7 @@ describe('Import type test (JSON)', function() {
       importer: jsonImporter(),
     });
 
-    expect(result.css.toString()).to.eql('body {\n  color: ""; }\n');
+    expect(result.css.toString()).to.eql('body {\n  color: "";\n}');
   });
 
   it('filters out `#` as variable value', function() {
@@ -148,7 +148,7 @@ describe('Import type test (JSON)', function() {
       importer: jsonImporter(),
     });
 
-    expect(result.css.toString()).to.eql('body {\n  color: ""; }\n');
+    expect(result.css.toString()).to.eql('body {\n  color: "";\n}');
   });
 
   it('allows case conversion', function() {
@@ -159,7 +159,7 @@ describe('Import type test (JSON)', function() {
       }),
     });
 
-    expect(result.css.toString()).to.eql('body {\n  color: #c33;\n  color: #3c3;\n  color: #33c; }\n');
+    expect(result.css.toString()).to.eql('body {\n  color: #c33;\n  color: #3c3;\n  color: #33c;\n}');
   });
 });
 
@@ -264,7 +264,7 @@ describe('Import type test (JSON5)', function() {
       importer: jsonImporter(),
     });
 
-    expect(result.css.toString()).to.eql('body {\n  color: ""; }\n');
+    expect(result.css.toString()).to.eql('body {\n  color: "";\n}');
   });
 
   it('ignores variables starting with @, : or $', function() {
@@ -273,7 +273,7 @@ describe('Import type test (JSON5)', function() {
       importer: jsonImporter(),
     });
 
-    expect(result.css.toString()).to.eql('body {\n  color: ""; }\n');
+    expect(result.css.toString()).to.eql('body {\n  color: "";\n}');
   });
 
   it('filters out `#` as variable value', function() {
@@ -282,7 +282,7 @@ describe('Import type test (JSON5)', function() {
       importer: jsonImporter(),
     });
 
-    expect(result.css.toString()).to.eql('body {\n  color: ""; }\n');
+    expect(result.css.toString()).to.eql('body {\n  color: "";\n}');
   });
 
   it('allows case conversion', function() {
@@ -293,7 +293,7 @@ describe('Import type test (JSON5)', function() {
       }),
     });
 
-    expect(result.css.toString()).to.eql('body {\n  color: #c33;\n  color: #3c3;\n  color: #33c; }\n');
+    expect(result.css.toString()).to.eql('body {\n  color: #c33;\n  color: #3c3;\n  color: #33c;\n}');
   });
 });
 

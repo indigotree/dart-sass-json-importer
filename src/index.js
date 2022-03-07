@@ -38,7 +38,7 @@ export default function(options = {}) {
         contents: transformJSONtoSass(json, options),
       };
     } catch(error) {
-      return new Error(`node-sass-json-importer: Error transforming JSON/JSON5 to SASS. Check if your JSON/JSON5 parses correctly. ${error}`);
+      return new Error(`dart-sass-json-importer: Error transforming JSON/JSON5 to SASS. Check if your JSON/JSON5 parses correctly. ${error}`);
     }
   }
 }
